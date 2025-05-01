@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SARTAJ - Restaurante Indio</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#D35400',secondary:'#8E44AD'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Poppins', sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+font-family: 'Playfair Display', serif;
+}
+.hero-section {
+background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://readdy.ai/api/search-image?query=Traditional%20Indian%20restaurant%20ambiance%20with%20warm%20lighting%2C%20colorful%20spices%20scattered%20on%20wooden%20surfaces%2C%20authentic%20Indian%20decorations%2C%20ornate%20patterns%2C%20golden%20accents%2C%20rich%20textures%2C%20aromatic%20food%20presentation%2C%20vibrant%20curry%20dishes%2C%20naan%20bread%2C%20and%20traditional%20Indian%20decor%20elements&width=1920&height=1080&seq=1&orientation=landscape');
+background-size: cover;
+background-position: center;
+}
+.menu-tab.active {
+color: #B8860B;
+background-color: rgba(184, 134, 11, 0.1);
+border-color: #B8860B;
+}
+.menu-section {
+display: none;
+}
+.menu-section.active {
+display: block;
+}
+.pattern-divider {
+background-image: url('https://static.readdy.ai/image/e8f05cc512df6c5576a6fe5c7a6d8269/b24bede7def8cd08b3f9dc60f67368ee.jpeg');
+background-size: contain;
+background-position: center;
+background-repeat: no-repeat;
+opacity: 0.8;
+}
+input[type="radio"] {
+display: none;
+}
+</style>
+</head>
+<body class="bg-amber-50/30">
+<!-- Header -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
+<div class="container mx-auto px-4 py-3 flex justify-between items-center">
+<a href="#" class="font-['Playfair_Display'] text-3xl font-bold text-primary">SARTAJ</a>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex space-x-6">
+<a href="#home" class="text-gray-700 hover:text-primary font-medium">Inicio / Home</a>
+<a href="#about" class="text-gray-700 hover:text-primary font-medium">Nosotros / About</a>
+<a href="#menu" class="text-gray-700 hover:text-primary font-medium">Menú / Menu</a>
+<a href="#contact" class="text-gray-700 hover:text-primary font-medium">Contacto / Contact</a>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex border border-gray-300 rounded-full overflow-hidden">
+<button class="px-3 py-1 bg-primary text-white">ES</button>
+<button class="px-3 py-1 bg-white text-gray-700">EN</button>
+</div>
+<button class="md:hidden w-10 h-10 flex items-center justify-center text-gray-700" id="mobile-menu-button">
+<i class="ri-menu-line ri-lg"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute w-full">
+<div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+<a href="#home" class="text-gray-700 hover:text-primary font-medium py-2 border-b border-gray-100">Inicio / Home</a>
+<a href="#about" class="text-gray-700 hover:text-primary font-medium py-2 border-b border-gray-100">Nosotros / About</a>
+<a href="#menu" class="text-gray-700 hover:text-primary font-medium py-2 border-b border-gray-100">Menú / Menu</a>
+<a href="#contact" class="text-gray-700 hover:text-primary font-medium py-2">Contacto / Contact</a>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section id="home" class="hero-section py-20 flex items-center pt-16">
+<div class="container mx-auto px-4 py-20 text-center">
+<h1 class="text-4xl md:text-7xl font-bold text-white mb-6 font-['Playfair_Display']">SARTAJ</h1>
+<p class="text-xl md:text-2xl text-white mb-10 max-w-3xl mx-auto">El auténtico sabor de la India / The authentic taste of India</p>
+<div class="flex flex-col md:flex-row gap-4 justify-center">
+<a href="tel:+34617916691" class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-button font-medium text-lg whitespace-nowrap">
+<i class="ri-phone-line mr-2"></i> Reservar Mesa / Book Table
+</a>
+<a href="#menu" class="bg-white hover:bg-gray-100 text-primary px-8 py-3 rounded-button font-medium text-lg whitespace-nowrap">
+<i class="ri-restaurant-line mr-2"></i> Ver Menú / See Menu
+</a>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section id="about" class="py-20 bg-white">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-bold mb-3 text-gray-800 font-['Playfair_Display']">Sobre Nosotros / About Us</h2>
+<div class="h-10 pattern-divider my-4"></div>
+</div>
+<div class="flex flex-col md:flex-row gap-10 items-center">
+<div class="md:w-1/2">
+<img src="https://readdy.ai/api/search-image?query=Authentic%20Indian%20restaurant%20interior%20with%20warm%20lighting%2C%20traditional%20decor%20elements%2C%20colorful%20textiles%2C%20ornate%20patterns%2C%20comfortable%20seating%20arrangement%2C%20cultural%20artifacts%2C%20elegant%20table%20settings%2C%20aromatic%20food%20presentation%2C%20vibrant%20atmosphere%2C%20rich%20textures&width=600&height=400&seq=3&orientation=landscape" alt="Restaurant Interior" class="rounded-lg shadow-lg w-full h-auto object-cover">
+</div>
+<div class="md:w-1/2">
+<h3 class="text-2xl font-bold mb-4 text-gray-800 font-['Playfair_Display']">Tradición y Autenticidad / Tradition and Authenticity</h3>
+<p class="text-gray-700 mb-4">
+Bienvenidos a SARTAJ, donde cada plato cuenta una historia de la rica tradición culinaria del norte de la India. Nuestros chefs expertos preparan cada receta con especias auténticas importadas directamente de la India, garantizando una experiencia gastronómica inolvidable.
+</p>
+<p class="text-gray-700 mb-6">
+Welcome to SARTAJ, where every dish tells a story of the rich culinary tradition of Northern India. Our expert chefs prepare each recipe with authentic spices imported directly from India, ensuring an unforgettable gastronomic experience.
+</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<div class="flex items-center gap-3 bg-amber-50 p-4 rounded-lg">
+<div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full text-primary">
+<i class="ri-award-line ri-xl"></i>
+</div>
+<div>
+<h4 class="font-bold text-gray-800">Cocina Auténtica / Authentic Cuisine</h4>
+<p class="text-sm text-gray-600">Recetas tradicionales / Traditional recipes</p>
+</div>
+</div>
+<div class="flex items-center gap-3 bg-amber-50 p-4 rounded-lg">
+<div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full text-primary">
+<i class="ri-fire-line ri-xl"></i>
+</div>
+<div>
+<h4 class="font-bold text-gray-800">Tandoor Horno / Tandoor Oven</h4>
+<p class="text-sm text-gray-600">Sabores únicos / Unique flavors</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Special Features -->
+<section class="py-16 bg-amber-50/70">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-white p-6 rounded-lg shadow-md text-center">
+<div class="w-16 h-16 mx-auto flex items-center justify-center bg-primary/10 rounded-full text-primary mb-4">
+<i class="ri-leaf-line ri-2x"></i>
+</div>
+<h3 class="text-xl font-bold mb-2 text-gray-800 font-['Playfair_Display']">Opciones Vegetarianas / Vegetarian Options</h3>
+<p class="text-gray-600">
+Amplia selección de platos vegetarianos auténticos de la India.
+<br>
+Wide selection of authentic Indian vegetarian dishes.
+</p>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md text-center">
+<div class="w-16 h-16 mx-auto flex items-center justify-center bg-primary/10 rounded-full text-primary mb-4">
+<i class="ri-restaurant-line ri-2x"></i>
+</div>
+<h3 class="text-xl font-bold mb-2 text-gray-800 font-['Playfair_Display']">Menú Diario / Daily Menu</h3>
+<p class="text-gray-600">
+Disfruta de nuestras opciones especiales a un precio increíble.
+<br>
+Enjoy our special options at an incredible price.
+</p>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md text-center">
+<a href="tel:+34617916691" class="block">
+<div class="w-16 h-16 mx-auto flex items-center justify-center bg-primary/10 rounded-full text-primary mb-4">
+<i class="ri-takeaway-line ri-2x"></i>
+</div>
+<h3 class="text-xl font-bold mb-2 text-gray-800 font-['Playfair_Display']">Para Llevar / Takeaway</h3>
+<p class="text-gray-600">
+Todos nuestros platos disponibles para llevar y disfrutar en casa.
+<br>
+All our dishes available for takeaway to enjoy at home.
+</p>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Menu Section -->
+<section id="menu" class="py-20 bg-white">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-bold mb-3 text-gray-800 font-['Playfair_Display']">Nuestro Menú / Our Menu</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">
+Descubre los sabores auténticos de la India del norte con nuestras recetas tradicionales.
+<br>
+Discover the authentic flavors of Northern India with our traditional recipes.
+</p>
+<div class="h-10 pattern-divider my-4"></div>
+</div>
+<!-- Menu Tabs -->
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-12 max-w-6xl mx-auto px-4">
+<button class="menu-tab active whitespace-nowrap px-2 py-2 text-xs md:text-sm font-medium border-2 border-[#B8860B] rounded-lg hover:bg-[#B8860B]/10 transition-all" data-target="daily-menu">
+Menú Diario / Daily Menu
+</button>
+<button class="menu-tab whitespace-nowrap px-3 py-2 text-sm font-medium border-2 border-[#B8860B] rounded-lg hover:bg-[#B8860B]/10 transition-all" data-target="salads">
+Salad & Raita
+</button>
+<button class="menu-tab whitespace-nowrap px-3 py-2 text-sm font-medium border-2 border-[#B8860B] rounded-lg hover:bg-[#B8860B]/10 transition-all" data-target="soups">
+Sopas / Soups
+</button>
+<button class="menu-tab whitespace-nowrap px-3 py-2 text-sm font-medium border-2 border-[#B8860B] rounded-lg hover:bg-[#B8860B]/10 transition-all" data-target="starters">
+Entrantes / Starters
+</button>
+<button class="menu-tab whitespace-nowrap px-3 py-2 text-sm font-medium border-2 border-[#B8860B] rounded-lg hover:bg-[#B8860B]/10 transition-all" data-target="tandoori">
+Sartaj Tandoori
+</button>
+<button class="menu-tab whitespace-nowrap px-3 py-2 text-sm font-medium border-2 border-[#B8860B] rounded-lg hover:bg-[#B8860B]/10 transition-all" data-target="mains">
+Platos Principales / Main Dishes
+</button>
+<button class="menu-tab whitespace-nowrap px-3 py-2 text-sm font-medium border-2 border-[#B8860B] rounded-lg hover:bg-[#B8860B]/10 transition-all" data-target="chef">
+Especialidades del Chef / Chef's Specials
+</button>
+<button class="menu-tab whitespace-nowrap px-3 py-2 text-sm font-medium border-2 border-[#B8860B] rounded-lg hover:bg-[#B8860B]/10 transition-all" data-target="vegetable">
+Platos de Verdura / Vegetable Dishes
+</button>
+<button class="menu-tab whitespace-nowrap px-3 py-2 text-sm font-medium border-2 border-[#B8860B] rounded-lg hover:bg-[#B8860B]/10 transition-all" data-target="biryani">
+Biryani
+</button>
+<button class="menu-tab whitespace-nowrap px-3 py-2 text-sm font-medium border-2 border-[#B8860B] rounded-lg hover:bg-[#B8860B]/10 transition-all" data-target="rice">
+Basmati Rice
+</button>
+<button class="menu-tab whitespace-nowrap px-3 py-2 text-sm font-medium border-2 border-[#B8860B] rounded-lg hover:bg-[#B8860B]/10 transition-all" data-target="bread">
+Naan Bread
+</button>
+</div>
+<!-- Menu Content -->
+<div class="menu-content bg-white rounded-lg shadow-md p-6">
+<!-- Daily Menu -->
+<div id="daily-menu" class="menu-section active">
+<h3 class="text-2xl font-bold mb-6 text-gray-800 font-['Playfair_Display']">🍽️ Menú Diario / Daily Menu - 16,95€</h3>
+<div class="bg-amber-50/50 p-6 rounded-lg">
+<p class="text-gray-600 mb-6">✨ Incluye Poppadum / Includes Poppadum</p>
+<div class="space-y-8">
+<div>
+<h4 class="text-xl font-bold mb-4 text-primary font-['Playfair_Display']">🥗 Starters / Entrantes</h4>
+<div class="space-y-2">
+<p class="text-gray-700">Soup of the day / Sopa del día</p>
+<p class="text-gray-700">Sartaj's Mixed Green Salad / Ensalada Mixta</p>
+<p class="text-gray-700">Onion Bhaji / Cebolla Bhaji</p>
+<p class="text-gray-700">Vegetable Samosa / Verdura Samosa</p>
+<p class="text-gray-700">Lamb Sheekh Kebab / Cordero Sheekh Kebab</p>
+<p class="text-gray-700">Chicken Tikka / Pollo Tikka</p>
+<p class="text-gray-700">Chicken Pakora / Pollo Pakora</p>
+<p class="text-gray-700">Prawn Puri / Gambas Puri</p>
+</div>
+</div>
+<div>
+<h4 class="text-xl font-bold mb-4 text-primary font-['Playfair_Display']">🍛 Main Course / Plato Principal</h4>
+<div class="space-y-2">
+<p class="text-gray-700">Chicken or Lamb Korma / Pollo o Cordero Korma</p>
+<p class="text-gray-700">Chicken or Lamb Madras / Pollo o Cordero Madras</p>
+<p class="text-gray-700">Chicken Tikka Masala / Pollo Tikka Masala</p>
+<p class="text-gray-700">Chicken or Lamb Rogan Josh / Pollo o Cordero Rogan Josh</p>
+<p class="text-gray-700">Dall Makhani / Dall Makhani</p>
+<p class="text-gray-700">Vegetable Jalfrezi / Vegetal Jalfrezi</p>
+</div>
+<div class="mt-6">
+<p class="text-gray-700 font-medium">🍚 Servido con / Served with:</p>
+<p class="text-gray-700">Pilau Rice or Garlic Naan (pan hindú)</p>
+</div>
+<div class="mt-4">
+<p class="text-gray-700 font-medium">🍰 Dessert or Coffee / Postre o Café</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Salads & Raita -->
+<div id="salads" class="menu-section">
+<h3 class="text-2xl font-bold mb-6 text-gray-800 font-['Playfair_Display']">Salad & Raita (Yogurt)</h3>
+<div class="space-y-6">
+<div class="flex justify-between items-start pb-4 border-b border-gray-200">
+<div>
+<h4 class="font-bold text-gray-800"><span class="text-primary mr-2">1.</span> Ensalada Verde / Green Salad</h4>
+<p class="text-sm text-gray-600">
+Lechuga, tomate, pepino y cebolla con aderezo especial
+<br>
+Lettuce, tomato, cucumber and onion with special dressing
+</p>
+</div>
+<span class="font-bold text-primary">4,50€</span>
+</div>
+<div class="flex justify-between items-start pb-4 border-b border-gray-200">
+<div>
+<h4 class="font-bold text-gray-800"><span class="text-primary mr-2">2.</span> Kachumber Salad / Ensalada Kachumber</h4>
+<p class="text-sm text-gray-600">
+Tomate, pepino, cebolla y cilantro picados finamente con especias
+<br>
+Finely chopped tomato, cucumber, onion and coriander with spices
+</p>
+</div>
+<span class="font-bold text-primary">5,25€</span>
+</div>
+<div class="flex justify-between items-start pb-4 border-b border-gray-200">
+<div>
+<h4 class="font-bold text-gray-800"><span class="text-primary mr-2">3.</span> Plain Raita / Raita Natural</h4>
+<p class="text-sm text-gray-600">
+Yogur natural con comino y cilantro
+<br>
+Natural yogurt with cumin and coriander
+</p>
+</div>
+<span class="font-bold text-primary">3,95€</span>
+</div>
+<div class="flex justify-between items-start pb-4 border-b border-gray-200">
+<div>
+<h4 class="font-bold text-gray-800"><span class="text-primary mr-2">4.</span> Cucumber Raita / Raita de Pepino</h4>
+<p class="text-sm text-gray-600">
+Yogur con pepino rallado, comino y menta
+<br>
+Yogurt with grated cucumber, cumin and mint
+</p>
+</div>
+<span class="font-bold text-primary">4,50€</span>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-bold text-gray-800"><span class="text-primary mr-2">5.</span> Boondi Raita / Raita Boondi</h4>
+<p class="text-sm text-gray-600">
+Yogur con bolitas crujientes de harina de garbanzo y especias
+<br>
+Yogurt with crispy chickpea flour balls and spices
+</p>
+</div>
+<span class="font-bold text-primary">4,95€</span>
+</div>
+</div>
+</div>
+<!-- Soups -->
+<div id="soups" class="menu-section">
+<h3 class="text-2xl font-bold mb-6 text-gray-800 font-['Playfair_Display']">Sopas / Soups</h3>
+<div class="space-y-6">
+<div class="flex justify-between items-start pb-4 border-b border-gray-200">
+<div>
+<h4 class="font-bold text-gray-800"><span class="text-primary mr-2">6.</span> Mulligatawny Soup / Sopa Mulligatawny</h4>
+<p class="text-sm text-gray-600">
+Sopa tradicional india con lentejas, verduras y especias
+<br>
+Traditional Indian soup with lentils, vegetables and spices
+</p>
+</div>
+<span class="font-bold text-primary">5,50€</span>
+</div>
+<div class="flex justify-between items-start pb-4 border-b border-gray-200">
+<div>
+<h4 class="font-bold text-gray-800"><span class="text-primary mr-2">7.</span> Tomato Soup / Sopa de Tomate</h4>
+<p class="text-sm text-gray-600">
+Sopa cremosa de tomate con un toque de especias indias
+<br>
+Creamy tomato soup with a touch of Indian spices
+</p>
+</div>
+<span class="font-bold text-primary">4,95€</span>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-bold text-gray-800"><span class="text-primary mr-2">8.</span> Chicken Soup / Sopa de Pollo</h4>
+<p class="text-sm text-gray-600">
+Caldo de pollo con verduras y especias aromáticas
+<br>
+Chicken broth with vegetables and aromatic spices
+</p>
+</div>
+<span class="font-bold text-primary">5,95€</span>
+</div>
+</div>
+</div>
+<!-- Starters -->
+<div id="starters" class="menu-section">
+<h3 class="text-2xl font-bold mb-6 text-gray-800 font-['Playfair_Display']">Entrantes / Starters</h3>
+<div class="space-y-6">
+<div class="flex justify-between items-start pb-4 border-b border-gray-200">
+<div>
+<h4 class="font-bold text-gray-800"><span class="text-primary mr-2">9.</span> Samosas Vegetales / Vegetable Samosas</h4>
+<p class="text-sm text-gray-600">
+Empanadas fritas rellenas de patata, guisantes y especias (2 uds)
+<br>
+Fried pastries filled with potato, peas and spices (2 pcs)
+</p>
+</div>
+<span class="font-bold text-primary">5,95€</span>
+</div>
+<div class="flex justify-between items-start pb-4 border-b border-gray-200">
+<div>
+<h4 class="font-bold text-gray-800"><span class="text-primary mr-2">10.</span> Onion Bhaji / Bhaji de Cebolla</h4>
+<p class="text-sm text-gray-600">
+Buñuelos crujientes de cebolla con harina de garbanzo y especias
+<br>
+Crispy onion fritters with chickpea flour and spices
+</p>
+</div>
+<span class="font-bold text-primary">5,50€</span>
+</div>
+<div class="flex justify-between items-start pb-4 border-b border-gray-200">
+<div>
+<h4 class="font-bold text-gray-800"><span class="text-primary mr-2">11.</span> Chicken Pakora / Pakora de Pollo</h4>
+<p class="text-sm text-gray-600">
+Trozos de pollo marinados y rebozados en harina de garbanzo
+<br>
+Marinated chicken pieces coated in chickpea flour
+</p>
+</div>
+<span class="font-bold text-primary">6,95€</span>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-bold text-gray-800"><span class="text-primary mr-2">12.</span> Mixed Platter / Plato Mixto</h4>
+<p class="text-sm text-gray-600">
+Selección de entrantes variados para compartir (para 2 personas)
+<br>
+Selection of various starters to share (for 2 people)
+</p>
+</div>
+<span class="font-bold text-primary">12,95€</span>
+</div>
+</div>
+</div>
+<!-- Tandoori -->
+<div id="tandoori" class="menu-section">
+<h3 class="text-2xl font-bold mb-6 text-gray-800 font-['Playfair_Display']">Sartaj Tandoori</h3>
+<div class="space-y-6">
+<div class="flex justify-between items-start pb-4 border-b border-gray-200">
+<div>
+<h4 class="font-bold text-gray-800"><span class="text-primary mr-2">13.</span> Chicken Tikka / Pollo Tikka</h4>
+<p class="text-sm text-gray-600">
+Trozos de pechuga de pollo marinados en yogur y especias, cocinados en horno tandoor
+<br>
+Pieces of chicken breast marinated in yogurt and spices, cooked in tandoor oven
+</p>
+</div>
+<span class="font-bold text-primary">10,95€</span>
+</div>
+<div class="flex justify-between items-start pb-4 border-b border-gray-200">
+<div>
+<h4 class="font-bold text-gray-800"><span class="text-primary mr-2">14.</span> Tandoori Chicken / Pollo Tandoori</h4>
+<p class="text-sm text-gray-600">
+Muslos de pollo marinados en yogur y especias, cocinados en horno tandoor
+<br>
+Chicken thighs marinated in yogurt and spices, cooked in tandoor oven
+</p>
+</div>
+<span class="font-bold text-primary">11,50€</span>
+</div>
+<div class="flex justify-between items-start pb-4 border-b border-gray-200">
+<div>
+<h4 class="font-bold text-gray-800"><span class="text-primary mr-2">15.</span> Seekh Kebab / Kebab Seekh</h4>
+<p class="text-sm text-gray-600">
+Brochetas de carne picada de cordero con cebolla, cilantro y especias
+<br>
+Skewers of minced lamb with onion, coriander and spices
+</p>
+</div>
+<span class="font-bold text-primary">12,95€</span>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-bold text-gray-800"><span class="text-primary mr-2">16.</span> Tandoori Mixed Grill / Parrillada Tandoori Mixta</h4>
+<p class="text-sm text-gray-600">
+Selección de carnes tandoori: pollo tikka, pollo tandoori, seekh kebab y gambas
+<br>
+Selection of tandoori meats: chicken tikka, tandoori chicken, seekh kebab and prawns
+</p>
+</div>
+<span class="font-bold text-primary">18,95€</span>
+</div>
+</div>
+</div>
+<!-- Main Dishes -->
+<div id="mains" class="menu-section">
+<h3 class="text-2xl font-bold mb-6 text-gray-800 font-['Playfair_Display']">Platos Principales / Main Dishes</h3>
+<div class="space-y-6">
+<div class="flex justify-between items-start pb-4 border-b border-gray-200">
+<div>
+<h4 class="font-bold text-gray-800"><span class="text-primary mr-2">49.</span> Punjabi Curry</h4>
+<p class="text-sm text-gray-600">
+A traditional medium spiced curry
+<br>
+Pedazos frescos de cebolla con salsa curry típica indú
+</p>
+<div class="flex justify-between items-start w-full">
+<div class="flex-grow">
+<div class="grid grid-cols-[1fr_auto] gap-x-8 gap-y-1 text-sm">
+<span>Chicken (Pollo)</span>
+<span class="text-right">9,25 €</span>
+<span>Lamb (Cordero)</span>
+<span class="text-right">10,25 €</span>
+<span>Prawn (Gambas)</span>
+<span class="text-right">10,25 €</span>
+<span>King Prawn (Langostinos)</span>
+<span class="text-right">12,00 €</span>
+<span>Fish (Pescado)</span>
+<span class="text-right">10,25 €</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex justify-between items-start pb-4 border-b border-gray-200">
+<div>
+<h4 class="font-bold text-gray-800"><span class="text-primary mr-2">50.</span> Karahi</h4>
+<p class="text-sm text-gray-600">
+Prepared in a special iron wok & flavoured with chopped tomatoes, onions and capsicum in a special blend of mild herbs
+<br>
+Preparado en un wok de hierro especial y aromatizado con tomates picados, cebollas y pimientos en una mezcla especial de hierbas suaves
+</p>
+<div class="mt-2 space-y-1">
+<div class="flex justify-between items-center text-sm">
+<span>Chicken (Pollo)</span>
+<span>10,25 €</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span>Lamb (Cordero)</span>
+<span>10,50 €</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span>Prawn (Gambas)</span>
+<span>10,50 €</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span>King Prawn (Langostinos)</span>
+<span>13,00 €</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span>Fish (Pescado)</span>
+<span>11,50 €</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex justify-between items-start pb-4 border-b border-gray-200">
+<div>
+<h4 class="font-bold text-gray-800"><span class="text-primary mr-2">51.</span> Vindaloo</h4>
+<p class="text-sm text-gray-600">
+A very hot dish prepared with special hot chilli paste and potatoes cooked in an authentic Indian gravy
+<br>
+Un plato muy picante preparado con pasta picante especial y patatas cocinadas en una auténtica salsa india
+</p>
+<div class="mt-2 space-y-1">
+<div class="flex justify-between items-center text-sm">
+<span>Chicken (Pollo)</span>
+<span>9,25 €</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span>Lamb (Cordero)</span>
+<span>10,25 €</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span>Prawn (Gambas)</span>
+<span>10,50 €</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span>King Prawn (Langostinos)</span>
+<span>12,00 €</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span>Fish (Pescado)</span>
+<span>10,25 €</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex justify-between items-start pb-4 border-b border-gray-200">
+<div>
+<h4 class="font-bold text-gray-800"><span class="text-primary mr-2">52.</span> Korma</h4>
+<p class="text-sm text-gray-600">
+A mild dish of cream, coconut & almonds, creating a rich velvety textured sauce
+<br>
+Un plato suave de crema, coco y almendras, que crea una rica salsa de textura aterciopelada
+</p>
+<div class="mt-2 space-y-1">
+<div class="flex justify-between items-center text-sm">
+<span>Chicken (Pollo)</span>
+<span>9,50 €</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span>Lamb (Cordero)</span>
+<span>10,25 €</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span>Prawn (Gambas)</span>
+<span>10,25 €</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span>King Prawn (Langostinos)</span>
+<span>11,95 €</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span>Fish (Pescado)</span>
+<span>11,25 €</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-bold text-gray-800"><span class="text-primary mr-2">53.</span> Jaipuri</h4>
+<p class="text-sm text-gray-600">
+Fruit cocktail, cashew paste, cream and almond sauce cooked in mildly spiced Jaipuri gravy
+<br>
+Cóctel de frutas, pasta de anacardos, crema y salsa de almendras cocinada en salsa Jaipuri ligeramente especiada
+</p>
+<div class="mt-2 space-y-1">
+<div class="flex justify-between items-center text-sm">
+<span>Chicken (Pollo)</span>
+<span>9,25 €</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span>Lamb (Cordero)</span>
+<span>10,25 €</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span>Prawn (Gambas)</span>
+<span>10,25 €</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span>King Prawn (Langostinos)</span>
+<span>12,50 €</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span>Fish (Pescado)</span>
+<span>11,25 €</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Chef's Specials -->
+<div id="chef" class="menu-section">
+<h3 class="text-2xl font-bold mb-6 text-gray-800 font-['Playfair_Display']">Especialidades del Chef / Chef's Specials</h3>
+<div class="space-y-6">
+<div class="flex justify-between items-start pb-4 border-b border-gray-200">
+<div>
+<h4 class="font-bold text-gray-800"><span class="text-primary mr-2">21.</span> Sartaj Special Curry / Curry Especial Sartaj</h4>
+<p class="text-sm text-gray-600">
+Receta secreta del chef con pollo, cordero y gambas en una salsa única
+<br>
+Chef's secret recipe with chicken, lamb and prawns in a unique sauce
+</p>
+</div>
+<span class="font-bold text-primary">16,95€</span>
+</div>
+<div class="flex justify-between items-start pb-4 border-b border-gray-200">
+<div>
+<h4 class="font-bold text-gray-800"><span class="text-primary mr-2">22.</span> Lamb Chops Masala / Chuletas de Cordero Masala</h4>
+<p class="text-sm text-gray-600">
+Chuletas de cordero marinadas y cocinadas en tandoor, servidas con salsa masala
+<br>
+Marinated lamb chops cooked in tandoor, served with masala sauce
+</p>
+</div>
+<span class="font-bold text-primary">17,95€</span>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-bold text-gray-800"><span class="text-primary mr-2">23.</span> Mango Chicken / Pollo al Mango</h4>
+<p class="text-sm text-gray-600">
+Pollo en salsa cremosa de mango, coco y especias suaves
+<br>
+Chicken in creamy mango, coconut and mild spices sauce
+</p>
+</div>
+<span class="font-bold text-primary">13,95€</span>
+</div>
+</div>
+</div>
+<!-- Vegetable Dishes -->
+<div id="vegetable" class="menu-section">
+<h3 class="text-2xl font-bold mb-6 text-gray-800 font-['Playfair_Display']">Platos de Verdura / Vegetable Dishes</h3>
+<div class="space-y-6">
+<div class="grid grid-cols-[1fr_auto] gap-x-8 pb-4 border-b border-gray-200">
+<div>
+<h4 class="font-bold text-gray-800"><span class="text-primary mr-2">24.</span> Palak Paneer / Paneer con Espinacas</h4>
+<p class="text-sm text-gray-600">
+Queso fresco indio con espinacas cremosas y especias
+<br>
+Indian fresh cheese with creamy spinach and spices
+</p>
+</div>
+<span class="font-bold text-primary text-right whitespace-nowrap">10,95€</span>
+</div>
+<div class="flex justify-between items-start pb-4 border-b border-gray-200">
+<div>
+<h4 class="font-bold text-gray-800"><span class="text-primary mr-2">25.</span> Chana Masala / Garbanzos Masala</h4>
+<p class="text-sm text-gray-600">
+Garbanzos cocinados con tomate, cebolla y especias
+<br>
+Chickpeas cooked with tomato, onion and spices
+</p>
+</div>
+<span class="font-bold text-primary">9,95€</span>
+</div>
+<div class="flex justify-between items-start pb-4 border-b border-gray-200">
+<div>
+<h4 class="font-bold text-gray-800"><span class="text-primary mr-2">26.</span> Dal Makhani / Dal Makhani</h4>
+<p class="text-sm text-gray-600">
+Lentejas negras y judías rojas cocinadas lentamente con mantequilla y especias
+<br>
+Slow-cooked black lentils and red beans with butter and spices
+</p>
+</div>
+<span class="font-bold text-primary">9,50€</span>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-bold text-gray-800"><span class="text-primary mr-2">27.</span> Mixed Vegetable Curry / Curry de Verduras Mixtas</h4>
+<p class="text-sm text-gray-600">
+Selección de verduras frescas en salsa de curry
+<br>
+Selection of fresh vegetables in curry sauce
+</p>
+</div>
+<span class="font-bold text-primary">9,95€</span>
+</div>
+</div>
+</div>
+<!-- Biryani -->
+<div id="biryani" class="menu-section">
+<h3 class="text-2xl font-bold mb-6 text-gray-800 font-['Playfair_Display']">Biryani (Arroz Especial / Special Rice)</h3>
+<div class="space-y-6">
+<div class="flex justify-between items-start pb-4 border-b border-gray-200">
+<div>
+<h4 class="font-bold text-gray-800"><span class="text-primary mr-2">28.</span> Vegetable Biryani / Biryani de Verduras</h4>
+<p class="text-sm text-gray-600">
+Arroz basmati con verduras y especias aromáticas
+<br>
+Basmati rice with vegetables and aromatic spices
+</p>
+</div>
+<span class="font-bold text-primary">10,95€</span>
+</div>
+<div class="flex justify-between items-start pb-4 border-b border-gray-200">
+<div>
+<h4 class="font-bold text-gray-800"><span class="text-primary mr-2">29.</span> Chicken Biryani / Biryani de Pollo</h4>
+<p class="text-sm text-gray-600">
+Arroz basmati con pollo y especias aromáticas
+<br>
+Basmati rice with chicken and aromatic spices
+</p>
+</div>
+<span class="font-bold text-primary">12,95€</span>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-bold text-gray-800"><span class="text-primary mr-2">30.</span> Lamb Biryani / Biryani de Cordero</h4>
+<p class="text-sm text-gray-600">
+Arroz basmati con cordero y especias aromáticas
+<br>
+Basmati rice with lamb and aromatic spices
+</p>
+</div>
+<span class="font-bold text-primary">14,95€</span>
+</div>
+</div>
+</div>
+<!-- Basmati Rice -->
+<div id="rice" class="menu-section">
+<h3 class="text-2xl font-bold mb-6 text-gray-800 font-['Playfair_Display']">Basmati Rice / Arroz Basmati</h3>
+<div class="space-y-6">
+<div class="flex justify-between items-start pb-4 border-b border-gray-200">
+<div>
+<h4 class="font-bold text-gray-800"><span class="text-primary mr-2">31.</span> Plain Rice / Arroz Blanco</h4>
+<p class="text-sm text-gray-600">
+Arroz basmati cocido al vapor
+<br>
+Steamed basmati rice
+</p>
+</div>
+<span class="font-bold text-primary">3,50€</span>
+</div>
+<div class="flex justify-between items-start pb-4 border-b border-gray-200">
+<div>
+<h4 class="font-bold text-gray-800"><span class="text-primary mr-2">32.</span> Pilau Rice / Arroz Pilau</h4>
+<p class="text-sm text-gray-600">
+Arroz basmati con azafrán y especias aromáticas
+<br>
+Basmati rice with saffron and aromatic spices
+</p>
+</div>
+<span class="font-bold text-primary">4,50€</span>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-bold text-gray-800"><span class="text-primary mr-2">33.</span> Mushroom Rice / Arroz con Champiñones</h4>
+<p class="text-sm text-gray-600">
+Arroz basmati con champiñones y especias
+<br>
+Basmati rice with mushrooms and spices
+</p>
+</div>
+<span class="font-bold text-primary">4,95€</span>
+</div>
+</div>
+</div>
+<!-- Naan Bread -->
+<div id="bread" class="menu-section">
+<h3 class="text-2xl font-bold mb-6 text-gray-800 font-['Playfair_Display']">Naan Bread / Pan Naan</h3>
+<div class="space-y-6">
+<div class="flex justify-between items-start pb-4 border-b border-gray-200">
+<div>
+<h4 class="font-bold text-gray-800"><span class="text-primary mr-2">34.</span> Plain Naan / Naan Natural</h4>
+<p class="text-sm text-gray-600">
+Pan tradicional indio cocinado en horno tandoor
+<br>
+Traditional Indian bread cooked in tandoor oven
+</p>
+</div>
+<span class="font-bold text-primary">2,95€</span>
+</div>
+<div class="flex justify-between items-start pb-4 border-b border-gray-200">
+<div>
+<h4 class="font-bold text-gray-800"><span class="text-primary mr-2">35.</span> Garlic Naan / Naan de Ajo</h4>
+<p class="text-sm text-gray-600">
+Pan naan con ajo y cilantro
+<br>
+Naan bread with garlic and coriander
+</p>
+</div>
+<span class="font-bold text-primary">3,50€</span>
+</div>
+<div class="flex justify-between items-start pb-4 border-b border-gray-200">
+<div>
+<h4 class="font-bold text-gray-800"><span class="text-primary mr-2">36.</span> Cheese Naan / Naan de Queso</h4>
+<p class="text-sm text-gray-600">
+Pan naan relleno de queso
+<br>
+Naan bread stuffed with cheese
+</p>
+</div>
+<span class="font-bold text-primary">3,95€</span>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-bold text-gray-800"><span class="text-primary mr-2">37.</span> Peshwari Naan / Naan Peshwari</h4>
+<p class="text-sm text-gray-600">
+Pan naan relleno de coco, almendras y pasas
+<br>
+Naan bread stuffed with coconut, almonds and raisins
+</p>
+</div>
+<span class="font-bold text-primary">4,50€</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Gallery Section -->
+<section class="py-20 bg-white">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-bold mb-3 text-gray-800 font-['Playfair_Display']">Nuestra Galería / Our Gallery</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">
+Descubre la experiencia SARTAJ a través de nuestras imágenes.
+<br>
+Discover the SARTAJ experience through our images.
+</p>
+<div class="h-10 pattern-divider my-4"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="overflow-hidden rounded-lg shadow-md">
+<img src="https://readdy.ai/api/search-image?query=Authentic%20Indian%20butter%20chicken%20curry%20with%20naan%20bread%2C%20served%20in%20traditional%20copper%20bowl%2C%20rich%20creamy%20orange%20sauce%2C%20tender%20chicken%20pieces%2C%20garnished%20with%20fresh%20coriander%2C%20on%20a%20rustic%20wooden%20table%20with%20spices&width=600&height=400&seq=4&orientation=landscape" alt="Butter Chicken" class="w-full h-64 object-cover object-top hover:scale-105 transition-transform duration-300">
+</div>
+<div class="overflow-hidden rounded-lg shadow-md">
+<img src="https://readdy.ai/api/search-image?query=Colorful%20Indian%20thali%20platter%20with%20various%20curries%2C%20rice%2C%20naan%20bread%2C%20raita%2C%20chutneys%2C%20and%20pickles%20arranged%20in%20small%20bowls%2C%20traditional%20brass%20plate%2C%20authentic%20presentation%2C%20vibrant%20colors%2C%20aromatic%20spices%20visible&width=600&height=400&seq=5&orientation=landscape" alt="Thali Platter" class="w-full h-64 object-cover object-top hover:scale-105 transition-transform duration-300">
+</div>
+<div class="overflow-hidden rounded-lg shadow-md">
+<img src="https://readdy.ai/api/search-image?query=Tandoori%20mixed%20grill%20with%20chicken%20tikka%2C%20seekh%20kebab%2C%20lamb%20chops%20and%20prawns%2C%20served%20on%20a%20sizzling%20plate%20with%20onions%20and%20bell%20peppers%2C%20garnished%20with%20lemon%20wedges%20and%20fresh%20herbs%2C%20smoky%20appearance&width=600&height=400&seq=6&orientation=landscape" alt="Tandoori Mixed Grill" class="w-full h-64 object-cover object-top hover:scale-105 transition-transform duration-300">
+</div>
+<div class="overflow-hidden rounded-lg shadow-md">
+<img src="https://readdy.ai/api/search-image?query=Assorted%20Indian%20breads%20including%20plain%20naan%2C%20garlic%20naan%2C%20cheese%20naan%20and%20peshwari%20naan%20in%20a%20basket%20lined%20with%20cloth%2C%20freshly%20baked%20with%20butter%20glisten%2C%20served%20with%20small%20bowls%20of%20chutney&width=600&height=400&seq=7&orientation=landscape" alt="Naan Bread Variety" class="w-full h-64 object-cover object-top hover:scale-105 transition-transform duration-300">
+</div>
+<div class="overflow-hidden rounded-lg shadow-md">
+<img src="https://readdy.ai/api/search-image?query=Elegant%20restaurant%20interior%20with%20Indian%20decor%2C%20warm%20lighting%2C%20comfortable%20seating%2C%20traditional%20artwork%20on%20walls%2C%20subtle%20cultural%20elements%2C%20inviting%20atmosphere%2C%20set%20tables%20with%20proper%20tableware&width=600&height=400&seq=8&orientation=landscape" alt="Restaurant Interior" class="w-full h-64 object-cover object-top hover:scale-105 transition-transform duration-300">
+</div>
+<div class="overflow-hidden rounded-lg shadow-md">
+<img src="https://readdy.ai/api/search-image?query=Colorful%20Indian%20spices%20in%20small%20bowls%20arranged%20on%20a%20wooden%20surface%2C%20including%20turmeric%2C%20red%20chili%20powder%2C%20cumin%2C%20coriander%2C%20garam%20masala%2C%20cardamom%20pods%2C%20cinnamon%20sticks%2C%20and%20cloves%2C%20vibrant%20colors&width=600&height=400&seq=9&orientation=landscape" alt="Indian Spices" class="w-full h-64 object-cover object-top hover:scale-105 transition-transform duration-300">
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section id="contact" class="py-20 bg-amber-50/70">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-bold mb-3 text-gray-800 font-['Playfair_Display']">Contacto / Contact</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">
+Visítanos o contáctanos para reservas y pedidos para llevar.
+<br>
+Visit us or contact us for reservations and takeaway orders.
+</p>
+<div class="h-10 pattern-divider my-4"></div>
+</div>
+<div class="flex flex-col lg:flex-row gap-10">
+<div class="lg:w-1/2 bg-white p-8 rounded-lg shadow-md">
+<h3 class="text-2xl font-bold mb-6 text-gray-800 font-['Playfair_Display']">Información de Contacto / Contact Information</h3>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full text-primary shrink-0 mt-1">
+<i class="ri-map-pin-line ri-lg"></i>
+</div>
+<div>
+<h4 class="font-bold text-gray-800 mb-1">Dirección / Address</h4>
+<p class="text-gray-600">Av. Dr. Meca, 116, 30868 Puerto de Mazarrón, Murcia</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full text-primary shrink-0 mt-1">
+<i class="ri-phone-line ri-lg"></i>
+</div>
+<div>
+<h4 class="font-bold text-gray-800 mb-1">Teléfono / Phone</h4>
+<p class="text-gray-600">+34 617 91 66 91</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full text-primary shrink-0 mt-1">
+<i class="ri-time-line ri-lg"></i>
+</div>
+<div>
+<h4 class="font-bold text-gray-800 mb-1">Horario / Opening Hours</h4>
+<p class="text-gray-600">
+Lunes a Domingo / Monday to Sunday
+<br>
+12:00 - 16:00, 19:00 - 23:30
+</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full text-primary shrink-0 mt-1">
+<i class="ri-instagram-line ri-lg"></i>
+</div>
+<div>
+<h4 class="font-bold text-gray-800 mb-1">Instagram</h4>
+<a href="https://www.instagram.com/sartaj_indian_restorent" class="text-primary hover:underline">@sartaj_indian_restorent</a>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full text-primary shrink-0 mt-1">
+<i class="ri-facebook-fill ri-lg"></i>
+</div>
+<div>
+<h4 class="font-bold text-gray-800 mb-1">Facebook</h4>
+<a href="https://www.facebook.com/SartajIndianRestaurant" class="text-primary hover:underline">Sartaj Indian restaurant</a>
+</div>
+</div>
+</div>
+<div class="mt-8 flex flex-col sm:flex-row gap-4">
+<a href="tel:+34617916691" class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-button font-medium text-center whitespace-nowrap">
+<i class="ri-phone-line mr-2"></i> Reservar Mesa / Book Table
+</a>
+<a href="https://wa.me/34617916691" class="bg-[#25D366] hover:bg-[#25D366]/90 text-white px-6 py-3 rounded-button font-medium text-center whitespace-nowrap">
+<i class="ri-whatsapp-line mr-2"></i> WhatsApp
+</a>
+</div>
+</div>
+<div class="lg:w-1/2">
+<div class="h-full bg-white rounded-lg shadow-md overflow-hidden">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3157.5734438244864!2d-1.2580698!3d37.5622138!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd63879a7e1e9c59%3A0x9a8c8f96494ab1b!2sAv.%20Dr.%20Meca%2C%20116%2C%2030868%20Puerto%20de%20Mazarr%C3%B3n%2C%20Murcia!5e0!3m2!1ses!2ses!4v1651302000000!5m2!1ses!2ses" width="100%" height="100%" style="border:0; min-height: 400px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-12">
+<div class="container mx-auto px-4">
+<div class="flex flex-col md:flex-row justify-between items-center mb-8">
+<div class="mb-6 md:mb-0">
+<h2 class="text-3xl font-bold mb-2 font-['Playfair_Display']">SARTAJ</h2>
+<p class="text-gray-400">El auténtico sabor de la India / The authentic taste of India</p>
+</div>
+<div class="flex gap-4">
+<a href="https://www.instagram.com/sartaj_indian_restorent" class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary rounded-full transition-colors">
+<i class="ri-instagram-line ri-lg"></i>
+</a>
+<a href="https://www.facebook.com/SartajIndianRestaurant" class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary rounded-full transition-colors">
+<i class="ri-facebook-fill ri-lg"></i>
+</a>
+<a href="https://wa.me/34617916691" class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-[#25D366] rounded-full transition-colors">
+<i class="ri-whatsapp-line ri-lg"></i>
+</a>
+</div>
+</div>
+<div class="border-t border-gray-800 pt-8">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-400 mb-4 md:mb-0">
+&copy; 2025 SARTAJ Indian Restaurant. Todos los derechos reservados / All rights reserved.
+</p>
+<div class="flex items-center gap-4">
+<span class="text-gray-400">Métodos de pago / Payment methods:</span>
+<div class="flex gap-2">
+<i class="ri-visa-fill ri-lg"></i>
+<i class="ri-mastercard-fill ri-lg"></i>
+<i class="ri-paypal-fill ri-lg"></i>
+<i class="ri-bank-card-fill ri-lg"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+// Mobile menu toggle
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+mobileMenuButton.addEventListener('click', function() {
+mobileMenu.classList.toggle('hidden');
+});
+// Menu tabs
+const menuTabs = document.querySelectorAll('.menu-tab');
+const menuSections = document.querySelectorAll('.menu-section');
+let activeTab = null;
+menuTabs.forEach(tab => {
+tab.addEventListener('click', function() {
+const target = this.getAttribute('data-target');
+if (activeTab === this) {
+// If clicking the active tab, show all sections
+menuSections.forEach(section => section.classList.add('active'));
+this.classList.remove('active');
+activeTab = null;
+} else {
+// Hide all sections
+menuSections.forEach(section => section.classList.remove('active'));
+// Remove active class from all tabs
+menuTabs.forEach(tab => tab.classList.remove('active'));
+// Show target section
+document.getElementById(target).classList.add('active');
+// Add active class to clicked tab
+this.classList.add('active');
+activeTab = this;
+}
+});
+});
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function(e) {
+e.preventDefault();
+const targetId = this.getAttribute('href');
+if (targetId === '#') return;
+const targetElement = document.querySelector(targetId);
+if (targetElement) {
+window.scrollTo({
+top: targetElement.offsetTop - 80,
+behavior: 'smooth'
+});
+// Close mobile menu if open
+if (!mobileMenu.classList.contains('hidden')) {
+mobileMenu.classList.add('hidden');
+}
+}
+});
+});
+});
+</script>
+</body>
+</html>
